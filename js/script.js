@@ -15,6 +15,7 @@ function start() {
       let description=[];
       let temp=[];
       let icon=[];
+      var i;
 
       // On récupère l'information principal
       /*const main = data.weather[0].main;
@@ -61,28 +62,12 @@ function start() {
       }*/
 
       // Modifier le DOM
-      //document.querySelectorAll("#today-forecast-main").innerHTML = main;
-      document.getElementById('today-forecast-main').innerHTML = main[0];
-      document.getElementById('today-forecast-more-info').innerHTML = description[0];
-      document.getElementById('icon-weather-container').innerHTML = icon[0];
-      document.getElementById('today-forecast-temp').innerHTML = `${temp[0]}°C`;
-
-      document.getElementById('tomorrow-forecast-main').innerHTML = main[1];
-      document.getElementById('tomorrow-forecast-more-info').innerHTML = description[1];
-      document.getElementById('tomorrow-icon-weather-container').innerHTML = icon[1];
-      document.getElementById('tomorrow-forecast-temp').innerHTML = `${temp[1]}°C`;
-
-      document.getElementById('aftertomorrow-forecast-main').innerHTML = main[2];
-      document.getElementById('aftertomorrow-forecast-more-info').innerHTML = description[2];
-      document.getElementById('aftertomorrow-icon-weather-container').innerHTML = icon[2];
-      document.getElementById('aftertomorrow-forecast-temp').innerHTML = `${temp[2]}°C`;
-
-      document.getElementById('afteraftertomorrow-forecast-main').innerHTML = main[3];
-      document.getElementById('afteraftertomorrow-forecast-more-info').innerHTML = description[3];
-      document.getElementById('afteraftertomorrow-icon-weather-container').innerHTML = icon[3];
-      document.getElementById('afteraftertomorrow-forecast-temp').innerHTML = `${temp[3]}°C`;
-      
-
+      for(i=0;i<4;i++){
+        document.getElementById('day'+i+'-forecast-main').innerHTML = main[i];
+        document.getElementById('day'+i+'-forecast-more-info').innerHTML = description[i];
+        document.getElementById('icon'+i+'-weather-container').innerHTML = icon[i];
+        document.getElementById('day'+i+'-forecast-temp').innerHTML = `${temp[i]}°C`;
+      }
       
     })
     .catch(function(error) {
